@@ -1,13 +1,15 @@
 <script setup lang="ts">
 const {data:page}=await useAsyncData('index',()=>queryContent('/').findOne())
 useSeoMeta({titleTemplate:'',title:page.value.title,ogTitle:page.value.title,description:page.value.description,ogDescription:page.value.description})
-async function fg(p){
+async function fg(query){alert(query);
     const rs=await fetch(`/api/chat`,{
       method:"GET",
       headers:{"Api-Key":"ep3"}
     });
     if(!rs.ok){throw new Error(`E1:${rs.statusText}`)}
-    const da=await rs.json(); alert(JSON.stringify(da));
+    else{alert(5)}
+    const da=await rs.json(); //alert(JSON.stringify(da));
+    alert(6);
 }
 const fetchPh=async(query)=>{
   const response=await fetch(`https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&client_id=OOBNDpH2xNShX6T9wWV_-9py3NtxfpGT2zMcashaO_o`);
@@ -19,7 +21,7 @@ onMounted(()=>{
   //fetchPh(prompt).then(photos=>{photos.forEach(photo=>{prompt.value=photo.urls.small});});
   //fetchGetty(prompt).then(image=>{prompt.value=image.display_sizes[0].uri});
   setTimeout(function(){
-    //fg()
+    fg("cats")
   },2000);
 });
 </script>
