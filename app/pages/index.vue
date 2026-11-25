@@ -21,6 +21,7 @@ onMounted(()=>{
   //fetchPh(prompt).then(photos=>{photos.forEach(photo=>{prompt.value=photo.urls.small});});
   //fetchGetty(prompt).then(image=>{prompt.value=image.display_sizes[0].uri});
   setTimeout(function(){
+    document.getElementById("prompt").value="Test3";
     fg("cats")
   },2000);
 });
